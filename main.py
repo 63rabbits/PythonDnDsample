@@ -27,6 +27,7 @@ WINDOW_HEIGHT = 200
 root = TkinterDnD.Tk()
 root.title('Drag and Drop')
 # root.geometry(f'{win_width}x{win_height}+500+100')
+root.wm_minsize(50, 50)
 root.geometry(util.WIN.get_position(root, WINDOW_WIDTH, WINDOW_HEIGHT, 'n', 0, 50)[0])
 # root.config(bg='#cccccc')
 
