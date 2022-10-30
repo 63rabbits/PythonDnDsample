@@ -1,17 +1,13 @@
-# ★App化
+# # make App
 # pip install tkinterdnd2
 # pyinstaller main.py --onefile --noconsole --icon=63rabbits.icns --collect-data tkinterdnd2
 
 from tkinter import *
-from tkinter import scrolledtext
-from turtle import width
-
 from tkinterdnd2 import *
 import utility63rabbits as util
 
 
 def dnd_handler(event):
-    # listbox.insert("end", event.data)
     file_list = util.DND.make_file_list(event.data)
     textbox.config(state=NORMAL)
     textbox.delete("1.0", "end")
@@ -27,7 +23,7 @@ WINDOW_HEIGHT = 200
 root = TkinterDnD.Tk()
 root.title('Drag and Drop')
 # root.geometry(f'{win_width}x{win_height}+500+100')
-root.minsize(width=50, height=50)
+# root.minsize(width=50, height=50)
 root.geometry(util.WIN.get_position(root, WINDOW_WIDTH, WINDOW_HEIGHT, 'n', 0, 50)[0])
 # root.config(bg='#cccccc')
 
