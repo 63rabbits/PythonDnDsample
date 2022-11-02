@@ -40,7 +40,7 @@ root.title('Drag and Drop')
 root.geometry(util.WIN.get_pos_string_on_screen(root, WINDOW_WIDTH, WINDOW_HEIGHT, 'n', 0, 50)[0])
 # set icon on the window bar
 if util.PLTFORM.is_windows():
-    root.iconbitmap(default=util.RSC.get_resource_path('resources\\icon.ico'))
+    root.iconbitmap(default=util.RSC.get_resource_path('icon.ico'))
 
 # Drag-and-Drop
 root.drop_target_register(DND_FILES)
