@@ -1,7 +1,8 @@
 # # make App
 # pip install tkinterdnd2
-# pyinstaller main.py --name dnd --onefile --noconsole --collect-data tkinterdnd2 --icon=icon.ico   # for windows
-# pyinstaller main.py --name dnd --onefile --noconsole --collect-data tkinterdnd2 --icon=icon.icns  # for mac
+# pyinstaller main.py --name dnd --onefile --noconsole --collect-data tkinterdnd2 --add-data="icon.ico:./" --icon=icon.ico      # for windows
+# pyinstaller main.py --name dnd --onefile --noconsole --collect-data tkinterdnd2 --add-data="icon.icns:./" --icon=icon.icns    # for mac
+
 
 from tkinter import *
 from tkinterdnd2 import *
@@ -36,7 +37,10 @@ WINDOW_HEIGHT = 200
 root = TkinterDnD.Tk()
 root.title('Drag and Drop')
 # root.geometry(f'{win_width}x{win_height}+500+100')
-root.geometry(util.WIN.get_position(root, WINDOW_WIDTH, WINDOW_HEIGHT, 'n', 0, 50)[0])
+root.geometry(util.WIN.get_pos_string_on_screen(root, WINDOW_WIDTH, WINDOW_HEIGHT, 'n', 0, 50)[0])
+# set icon on the window bar
+if util.PLTFORM.is_windows():
+    root.iconbitmap(default=util.RSC.get_resource_path('resources\\icon.ico'))
 
 # Drag-and-Drop
 root.drop_target_register(DND_FILES)

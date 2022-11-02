@@ -1,11 +1,42 @@
+import os
+import sys
 import re
+
+
+# for Platform
+
+class PLTFORM:
+    @staticmethod
+    def is_windows():
+        if os.name == 'nt':  return True
+        return False
+
+    @staticmethod
+    def is_linux():
+        if os.name == 'posix':  return True
+        return False
+
+    @staticmethod
+    def is_mac():
+        return PLTFORM.is_linux()
+
+
+# for Resource Control
+
+class RSC:
+    @staticmethod
+    def get_resource_path(filename):
+        if hasattr(sys, "_MEIPASS"):
+            return os.path.join(sys._MEIPASS, filename)
+        # return os.path.join(filename)
+        return filename
 
 
 # for Window
 
 class WIN:
     @staticmethod
-    def get_position(self, width, height, position='C', x_offset=0, y_offset=0):
+    def get_pos_string_on_screen(self, width, height, position='C', x_offset=0, y_offset=0):
         sw = self.winfo_screenwidth()
         sh = self.winfo_screenheight()
         xy = ((sw - width) // 2, (sh - height) // 2)
