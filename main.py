@@ -1,6 +1,6 @@
 # # make App
 # pip install tkinterdnd2
-# pyinstaller main.py --name dnd --onefile --noconsole --collect-data tkinterdnd2 --add-data="icon.ico:./" --icon=icon.ico      # for windows
+# pyinstaller main.py --name dnd --onefile --noconsole --collect-data tkinterdnd2 --add-data="icon.ico;./" --icon=icon.ico      # for windows
 # pyinstaller main.py --name dnd --onefile --noconsole --collect-data tkinterdnd2 --add-data="icon.icns:./" --icon=icon.icns    # for mac
 
 
